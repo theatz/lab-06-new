@@ -1,3 +1,4 @@
+//"Copyright [year] <Copyright Owner>"
 //
 // Created by mrbgn on 3/3/21.
 //
@@ -24,12 +25,12 @@ void Logger::operator << (ToFile data) {
     BOOST_LOG_TRIVIAL(info)<< " data: " << data.data
                            << " hash: " << data.hash << " id: "
                            <<  std::this_thread::get_id();
-  } else
-    BOOST_LOG_TRIVIAL(trace) << " data: " << data.data
-                             << " hash: " << data.hash << " id: "
-                             <<  std::this_thread::get_id();
-
+  } else {
+    BOOST_LOG_TRIVIAL(trace) << " data: " << data.data << " hash: " << data.hash
+                             << " id: " << std::this_thread::get_id();
+  }
 }
+
 Logger::Logger() {
   _result.clear();
   Init();

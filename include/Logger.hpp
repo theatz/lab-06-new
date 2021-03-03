@@ -1,3 +1,4 @@
+//"Copyright [year] <Copyright Owner>"
 //
 // Created by mrbgn on 3/3/21.
 //
@@ -7,6 +8,8 @@
 
 #include <nlohmann/json.hpp>
 #include <iostream>
+#include <string>
+#include <vector>
 #include <boost/smart_ptr/shared_ptr.hpp>
 #include <boost/date_time/posix_time/posix_time.hpp>
 #include <boost/log/common.hpp>
