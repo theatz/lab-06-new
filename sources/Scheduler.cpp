@@ -18,6 +18,7 @@ Scheduler::Scheduler(std::atomic_int& sig)
     : _sig(sig), _work(true), _logger(){
   for (uint32_t i = 0; i < 5; i++)
     _threads.emplace_back(&Scheduler::Work, this);
+  _threads.emplace_back(&Scheduler::Stop, this);
   for (auto& worker : _threads)
     if (worker.joinable()) worker.join();
 }
@@ -26,11 +27,12 @@ Scheduler::Scheduler(std::atomic_int& sig, int count)
     : _sig(sig), _work(true), _logger() {
   for (uint32_t i = 0; i < count; i++)
     _threads.emplace_back(&Scheduler::Work, this);
+  _threads.emplace_back(&Scheduler::Stop, this);
   for (auto& worker : _threads)
     if (worker.joinable()) worker.join();
 }
 
-Scheduler::Scheduler(std::atomic_int& sig, int count, std::string& file_name)
+Scheduler::Scheduler(std::atomic_int& sig, int count, std::string file_name)
     : _sig(sig), _work(true), _logger(file_name) {
   for (uint32_t i = 0; i < count; i++)
     _threads.emplace_back(&Scheduler::Work, this);

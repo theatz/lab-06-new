@@ -41,7 +41,7 @@ Logger::Logger(std::string& fileName) : _fileName(fileName) {
 }
 
 Logger::~Logger() {
-  if (!_fileName.empty())
+  if (!_fileName.empty() && !_result.empty())
   {
     std::ofstream file(_fileName + ".json");
     if (file.is_open()) {

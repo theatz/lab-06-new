@@ -35,7 +35,7 @@ class Logger {
   Logger();
   Logger(std::string& fileName);
   void operator << (ToFile data);
-  bool Matching(std::string hash);
+  static bool Matching(std::string hash);
   void Init();
   ~Logger();
  private:

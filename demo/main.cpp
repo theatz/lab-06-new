@@ -9,11 +9,16 @@ void Interupt(int i) {
   sig = i;
 }
 
-int main() {
-  sig = 0;
-  std::string filename = "check";
+
+int main(int argc, char** argv) {
   signal(SIGTERM, Interupt);
   signal(SIGINT, Interupt);
-  Scheduler w(sig, 8, filename);
+  if (argc == 1)
+    Scheduler work(sig);
+  else if (argc == 2)
+    Scheduler work(sig, boost::lexical_cast<unsigned>(argv[1]));
+  else if (argc == 3)
+    Scheduler work(sig, boost::lexical_cast<unsigned>(argv[1]), argv[2]);
+
   return 0;
 }
