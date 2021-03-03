@@ -3,13 +3,12 @@
 // Created by mrbgn on 3/3/21.
 //
 
-#ifndef THREADING_LOGGER_HPP
-#define THREADING_LOGGER_HPP
+#ifndef INCLUDE_LOGGER_HPP_
+#define INCLUDE_LOGGER_HPP_
 
 #include <nlohmann/json.hpp>
 #include <iostream>
 #include <string>
-#include <vector>
 #include <boost/smart_ptr/shared_ptr.hpp>
 #include <boost/date_time/posix_time/posix_time.hpp>
 #include <boost/log/common.hpp>
@@ -36,7 +35,7 @@ struct ToFile {
 class Logger {
  public:
   Logger();
-  Logger(std::string& fileName);
+  explicit Logger(std::string& fileName);
   void operator << (ToFile data);
   static bool Matching(std::string hash);
   void Init();
@@ -46,4 +45,4 @@ class Logger {
   std::string _fileName;
 };
 
-#endif  // THREADING_LOGGER_HPP
+#endif  // INCLUDE_LOGGER_HPP_

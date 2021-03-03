@@ -3,8 +3,8 @@
 // Created by mrbgn on 3/3/21.
 //
 
-#ifndef THREADING_SCHEDULER_HPP
-#define THREADING_SCHEDULER_HPP
+#ifndef INCLUDE_SCHEDULER_HPP_
+#define INCLUDE_SCHEDULER_HPP_
 #include <algorithm>
 #include <chrono>
 #include <csignal>
@@ -14,8 +14,7 @@
 #include <string>
 #include <thread>
 #include <atomic>
-#include <mutex>
-
+#include <vector>
 #include "Logger.hpp"
 #include "picosha2.h"
 
@@ -40,4 +39,4 @@ class Scheduler {
 };
 
 
-#endif  // THREADING_SCHEDULER_HPP
+#endif  // INCLUDE_SCHEDULER_HPP_
