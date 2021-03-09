@@ -24,7 +24,7 @@
 class Scheduler {
  public:
   Scheduler(std::atomic_int& sig, int count);
-  Scheduler(std::atomic_int& sig);
+  explicit Scheduler(std::atomic_int& sig);
   Scheduler(std::atomic_int& sig, int count, std::string file_name);
 
   void Stop();
