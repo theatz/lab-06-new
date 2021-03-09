@@ -8,7 +8,6 @@ void Interupt(int i) {
   std::cout << i << std::endl;
   sig = i;
 }
-1
 
 int main(int argc, char** argv) {
   signal(SIGTERM, Interupt);
